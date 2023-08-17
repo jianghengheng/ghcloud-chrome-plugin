@@ -1,0 +1,38 @@
+{
+    "manifest_version": 3,
+    "name": "ghcloud-chrome-plugin",
+    "version": "0.0.1",
+    "description": "古河云chrome调试插件",
+    "icons": {
+        "128": "assets/img/logo.png",
+        "48": "assets/img/logo.png",
+        "16": "assets/img/logo.png"
+    },
+    "action": {
+        "default_title": "古河云调式插件",
+        "default_popup": "src/popup.html"
+    },
+    "permissions": [
+        "storage",
+        "activeTab",
+        "scripting",
+        "sessions",
+        "tabs",
+        "webRequest",
+        "declarativeNetRequest",
+        "declarativeNetRequestWithHostAccess",
+        "declarativeNetRequestFeedback"
+    ],
+    "host_permissions": [
+        "https://*.guhecloud.com/"
+    ],
+    "declarative_net_request": {
+        "rule_resources": [
+            {
+                "id": "ruleset_1",
+                "enabled": false,
+                "path": "src/json/rules.json"
+            }
+        ]
+    }
+}

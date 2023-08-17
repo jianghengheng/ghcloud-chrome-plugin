@@ -1,0 +1,133 @@
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<script src="./lib/jquery.js"></script>
+		<link rel="stylesheet" href="./lib/layui/css/layui.css" />
+		<script src="./lib/layui/layui.js"></script>
+		<style>
+			body {
+				box-sizing: border-box;
+				padding: 10px;
+				min-width: 500px;
+			}
+
+			td {
+				white-space: nowrap;
+				max-width: 300px;
+				overflow: hidden;
+				text-overflow: ellipsis;
+			}
+
+			.layui-elem-quote {
+				padding: 5px 15px;
+			}
+			.layui-form-label {
+				white-space: nowrap;
+				display: flex;
+				align-items: center;
+			}
+
+			.layui-form-label .layui-form-checkbox {
+				margin-top: 0 !important;
+			}
+			.layui-form-select dl dd {
+				text-align: left;
+			}
+      .microApps-item{
+        margin-left: 170px;
+        display: flex;
+      }
+			.update-microApps-item {
+				cursor: pointer;
+			}
+      .layui-elem-quote{
+        display: flex;
+        justify-content: space-between;
+      }
+		</style>
+	</head>
+
+	<body class="layui-anim layui-anim-down">
+		<blockquote class="layui-elem-quote">
+      <span>古河云 Chrome 调试插件</span>
+      <span class="layui-text-em">version: 0.0.1</span>
+    </blockquote>
+		<div id="console"></div>
+		<fieldset class="layui-elem-field layui-field-title">
+			<legend>基础信息</legend>
+		</fieldset>
+		<table class="layui-table" lay-size="sm">
+			<tbody id="info-tbody">
+				<tr>
+					<td>当前地址</td>
+					<td id="domain-url" colspan="2" style="text-align: center"></td>
+				</tr>
+				<tr>
+					<td>登录用户名</td>
+					<td id="domain-username"></td>
+					<td>
+						<button type="button" class="layui-btn layui-btn-xs copy-btn-td">复制</button>
+					</td>
+				</tr>
+				<tr>
+					<td>登录用户ID</td>
+					<td id="domain-userId"></td>
+					<td>
+						<button type="button" class="layui-btn layui-btn-xs copy-btn-td">复制</button>
+					</td>
+				</tr>
+				<tr>
+					<td>Token</td>
+					<td id="domain-token"></td>
+					<td>
+						<button type="button" class="layui-btn layui-btn-xs copy-btn-td">复制</button>
+					</td>
+				</tr>
+				<tr>
+					<td>Tenant</td>
+					<td id="domain-tenant"></td>
+					<td>
+						<button type="button" class="layui-btn layui-btn-xs copy-btn-td" data-id="domain-tenant">复制</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<fieldset class="layui-elem-field layui-field-title">
+			<legend>config.js 注入</legend>
+		</fieldset>
+		<form class="layui-form" action="" lay-filter="config-inject" id="config-inject-form">
+			<div class="layui-form-item">
+				<label class="layui-form-label">注入状态：</label>
+				<div class="layui-input-inline">
+					<input type="checkbox" name="injectStatus" lay-skin="switch" lay-filter="injectStatus" title="ON|OFF" />
+				</div>
+				<div class="layui-form-mid layui-text-em">为空的内容将不会生效</div>
+			</div>
+		</form>
+		<fieldset class="layui-elem-field layui-field-title">
+			<legend>header 注入</legend>
+		</fieldset>
+		<form class="layui-form" action="" lay-filter="header-inject" id="config-inject-form">
+			<div class="layui-form-item">
+				<label class="layui-form-label">注入状态：</label>
+				<div class="layui-input-inline">
+					<input type="checkbox" name="headerInjectStatus" lay-skin="switch" lay-filter="headerInjectStatus" title="ON|OFF" />
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label">backend-ip:</label>
+				<div class="layui-input-block microApps-item">
+					<input type="text" placeholder="请输入" class="layui-input" value='' name="backend-ip">
+					<button type="button" class="layui-btn apply-btn" data-applyType='modifyHeaders'>应用</button>
+				</div>
+			</div>
+		</form>
+    <button type="button" class="layui-btn layui-btn-fluid" id="clearLocalConfig">清空插件配置</button>
+		<script src="./js/utils.js"></script>
+		<script src="./js/popup.js"></script>
+	</body>
+</html>
+面板地址:http://124.222.59.119:8888/ec8879dd
+用户名:rbmjot4d
+密码:172a91da
